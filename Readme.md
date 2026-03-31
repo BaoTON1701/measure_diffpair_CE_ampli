@@ -29,6 +29,9 @@ Results obtained from the measurement from 3 PCB boards of Differential Common-E
 
 The main objective of the measurement is to measure the **input referred noise** of the differential amplifier. 
 
+There will be 3 differential pair on the same ASIC (R&T BiCMOS run 1) with input/output control by 2 analog switch.
+
+
 Anyway, there is some improvement on the PCB board that we're expected to see: 
 
 * Voltage Regulator was implemented in term of reducing the noise from power supply. 
@@ -52,13 +55,79 @@ Anyway, there is some improvement on the PCB board that we're expected to see:
 
 ### 2.2. Noise measurement 
 
-The purpose of this measurement is to characterize the Heterojunction Bipolar Transistor (HBT) from IHP.
+#### 2.2.1. General Input noise measurement for each PCB 
 
-The test circuit consists of 6 groups of transistors, with each group containing 40 transistors in parallel. Each transistor has an emitter length ($E_l$) of $40 \mu m$. The circuit, designed by Jean Mesquida (APC), is part of the R&T BiCMOS project ASIC, which was taped out in November 2024. The test board was provided by Bao TON (APC).
+In this measurement:
 
-Measurements were performed using a **B1500A Semiconductor Device Parameter Analyzer** at two distinct temperatures:
-- **Room temperature:** 300K
-- **Cryogenic temperature:** 77K
+* Potentiometer adjusted to be in the middle of the track, proving $R_{C1} = R_{C2} = 2150 \Omega$
+* Circuit bias with $I_{EE} = 1k \Omega$
+* Gain of Stanford Research setted at 1000
+
+Raw data measurement (overplot with instrument noise)
+
+<figure>
+  <img src="plot/measurement_raw_B1.png" alt="Raw noise B1">
+  <figcaption>Noise density of Board 1</figcaption>
+</figure>
+
+<figure>
+  <img src="plot/measurement_raw_B2.png" alt="Raw noise B2">
+  <figcaption>Noise density of Board 2</figcaption>
+</figure>
+
+<figure>
+  <img src="plot/measurement_raw_B3.png" alt="Raw noise B3">
+  <figcaption>Noise density of Board 3</figcaption>
+</figure>
+
+
+We now show the cleaned spectrum (by subtracting the noise floor), apply a fit, divide by the differential gain and overplot with a post-layout simulation result.
+
+<figure>
+  <img src="plot/measurement_B1_intrinsic_noise_fit_vs_simulation.png" alt="input noise B1">
+  <figcaption>Input referred noise measured Board 1</figcaption>
+</figure>
+
+<figure>
+  <img src="plot/measurement_B2_intrinsic_noise_fit_vs_simulation.png" alt="input noise B2">
+  <figcaption>Input referred noise measured Board 2</figcaption>
+</figure>
+
+<figure>
+  <img src="plot/measurement_B3_intrinsic_noise_fit_vs_simulation.png" alt="input noise B3">
+  <figcaption>Input referred noise measured Board 3</figcaption>
+</figure>
+
+
+#### 2.2.2. Input noise's variation due to mismatch
+For this measurement, we adjust the potentiometer in between two load resistors in order to introduce mismatch. The results divide by 2 section
+
+* Measurement while keeping the cutoff frequency near 1Hz for LPF at emitter, mismatch increase from 0 to 5 %
+
+<figure>
+  <img src="plot/Board_2_Noise_Spectrum_asymmetry_compare_medianfit.png" alt="Mismatch noise case 1">
+  <figcaption>Mismatch=induced Input referred noise measured Board 2 (with LPF) </figcaption>
+</figure>
+
+* Measurement while removing LPF at emitter, mismatch increase from 0 to 15 %, in comparison with post-layout simulation 
+
+<figure>
+  <img src="plot/noise_vs_mismatch_simu.png" alt="Mismatch noise case 2 (simu)">
+  <figcaption>Mismatch=induced Input referred noise measured Board 2 (simu) </figcaption>
+</figure>
+
+<figure>
+  <img src="plot/noise_vs_mismatch_measure.png" alt="Mismatch noise case 2 (simu)">
+  <figcaption>Mismatch=induced Input referred noise measured Board 2 (measure) </figcaption>
+</figure>
+
+
+
+<!-- The purpose of this measurement is to characterize the Heterojunction Bipolar Transistor (HBT) from IHP.
+
+The test circuit consists of 6 groups of transistors, with each group containing 40 transistors in parallel. Each transistor has an emitter length ($E_l$) of $40 \mu m$. The circuit, designed by Jean Mesquida (APC), is part of the R&T BiCMOS project ASIC, which was taped out in November 2024. The test board was provided by Bao TON (APC). -->
+
+
 
 # Aknowledgement 
 
