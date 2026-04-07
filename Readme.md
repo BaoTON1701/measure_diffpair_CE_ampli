@@ -118,7 +118,7 @@ For this measurement, we adjust the potentiometer in between two load resistors 
 
 <figure>
   <img src="plot/noise_vs_mismatch_measure.png" alt="Mismatch noise case 2 (simu)">
-  <figcaption>Mismatch=induced Input referred noise measured Board 2 (measure) </figcaption>
+  <figcaption>Mismatch-induced Input referred noise measured Board 2 (measure) </figcaption>
 </figure>
 
 
@@ -128,7 +128,12 @@ For this measurement, we adjust the potentiometer in between two load resistors 
 The test circuit consists of 6 groups of transistors, with each group containing 40 transistors in parallel. Each transistor has an emitter length ($E_l$) of $40 \mu m$. The circuit, designed by Jean Mesquida (APC), is part of the R&T BiCMOS project ASIC, which was taped out in November 2024. The test board was provided by Bao TON (APC). -->
 
 
+# Next plan 
 
+1. Review remain functional pair in each board 
+2. Do the mismatch measurement on other boards (other from board 3)
+3. Change IEE, measure the noise of all board 
+4. Cryogenic measurement? 
 # Aknowledgement 
 
 ASICs and Measurement was done due to the contribution of **R&T BiCMOS** multi-wafer project and **Laboratory
