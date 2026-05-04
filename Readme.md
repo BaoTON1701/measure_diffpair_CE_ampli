@@ -194,6 +194,6 @@ In this measurement, we're going the keep the same gain, in order to keep the sa
 
 
 
-
-ASICs and Measurement was done due to the contribution of **R&T BiCMOS** multi-wafer project and **Laboratory
+-------
+Acknowledgement: ASICs and Measurement was done due to the contribution of **R&T BiCMOS** multi-wafer project and **Laboratory
 of Astroparticles and Cosmology (APC)**
