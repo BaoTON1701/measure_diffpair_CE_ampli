@@ -189,7 +189,17 @@ In this measurement, we're going the keep the same gain, in order to keep the sa
   <figcaption>Input-referred noise @77K . We observe the increasing of the plateau but at higher frequency compared to the previous section  </figcaption>
 </figure>
 
+### 3. Results measured with new Power supply 
 
+<figure>
+  <img src="plot/Input-Referred_Noise_300K_same_gain_new_supply.png" alt="input-referred noise 300K same gain">
+  <figcaption>Input-referred noise @300K . We still observe flicker noise increase...  </figcaption>
+</figure>
+
+<figure>
+  <img src="plot/Input-Referred_Noise_77K_same_gain_new_supply.png" alt="input-referred noise 77K same gain">
+  <figcaption>Input-referred noise @77K . We observe a decreasing of flicker noise in middle range  </figcaption>
+</figure>
 
 
 
