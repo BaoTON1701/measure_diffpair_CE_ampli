@@ -127,14 +127,73 @@ For this measurement, we adjust the potentiometer in between two load resistors 
 
 The test circuit consists of 6 groups of transistors, with each group containing 40 transistors in parallel. Each transistor has an emitter length ($E_l$) of $40 \mu m$. The circuit, designed by Jean Mesquida (APC), is part of the R&T BiCMOS project ASIC, which was taped out in November 2024. The test board was provided by Bao TON (APC). -->
 
+------
 
-# Next plan 
+# Measurement at cryogenic temperature
 
-1. Review remain functional pair in each board 
-2. Do the mismatch measurement on other boards (other from board 3)
-3. Change IEE, measure the noise of all board 
-4. Cryogenic measurement? 
-# Aknowledgement 
+Context: In this section, we're going to do some measurement in cryogenic temperature (77K) using Liquid Nitrogen. We will: 
+* Compare the gain between RT & CT 
+* Measure and analyse the noise 
+* Furthur more, we are going to operature in different bias to see if we can reduce the flicker noise as reducing the bias
+
+## Result
+
+### 1. Gain and Noise measurement with different biasing (Ic) and invariant load resistor (Rc)  
+In this measurement, we change the $R_{EE}$ in turn $1k \Omega,~2k \Omega,~4k \Omega$, giving gain results below: 
+
+<figure>
+  <img src="plot/Gain_vs_Frequency_300K_77K.png" alt="gain_T_diff">
+  <figcaption>Gain measurement results at RT and CT for different biasing condition. RT results shows in solid whether CT in dashed line. Color presents same biasing condition</figcaption>
+</figure>
+
+Measurement shows an increasing of 2 at CT compare to the one at RT, whether we are expeced the increasing of $\frac{I_C~@77K}{I_C~@300K} \times \frac{300}{77} \approx 2.33 $, The results is quite close to what we've expected. 
+
+We are now presenting the noise measurement results
+
+<figure>
+  <img src="plot/Output_Noise_300K.png" alt="Output noise 300K">
+  <figcaption>Output measured noise @300K overplot with instrument's noise</figcaption>
+</figure>
+
+<figure>
+  <img src="plot/Output_Noise_77K.png" alt="Output noise 77K">
+  <figcaption>Output measured noise @77K overplot with instrument's noise</figcaption>
+</figure>
+
+We see the reducing of noise while reducing the bias, but this could be due to the **reducing in Gain** of this amplifier. Noise we can divide this to the corresponding gain to present the **input referred noise**
+
+<figure>
+  <img src="plot/Input-Referred_Noise_300K.png" alt="input-referred noise 300K">
+  <figcaption>Input-referred noise @300K. We observe the increasing in white noise (mainly due to shot noise), whether flicker noise unchanged </figcaption>
+</figure>
+
+<figure>
+  <img src="plot/Input-Referred_Noise_77K.png" alt="input-referred noise 77K">
+  <figcaption>Input-referred noise @77K. We see the plateau at high frequency starts to go up due to the increasing of white noise. However, the flicker noise still remain unchange. </figcaption>
+</figure>
+
+We see clearly the behavior of shot noise as it increasing inversely to the biasing. However, we don't see the change in flicker noise. Is that because there is another source of flicker noise that conteminate the circuit?
+
+<u> Note: </u> different biasing at CT compare to RT due to the fact that base-emitter voltage ($V_{BE}$) depend on the temperature (normally 0.7V at RT and near 1V at CT)
+
+### 2. Noise measurement while keeping the same gain (by increase Rc while reducing Ic)
+In this measurement, we're going the keep the same gain, in order to keep the same output common mode voltage (as shown in the optimization) then try to compare them. 
+
+<figure>
+  <img src="plot/Input-Referred_Noise_300K_same_gain.png" alt="input-referred noise 300K same gain">
+  <figcaption>Input-referred noise @300K . We observe flicker noise increase? WTF?  </figcaption>
+</figure>
+
+<figure>
+  <img src="plot/Input-Referred_Noise_77K_same_gain.png" alt="input-referred noise 77K same gain">
+  <figcaption>Input-referred noise @77K . We observe the increasing of the plateau but at higher frequency compared to the previous section  </figcaption>
+</figure>
+
+
+
+
+
+
 
 ASICs and Measurement was done due to the contribution of **R&T BiCMOS** multi-wafer project and **Laboratory
 of Astroparticles and Cosmology (APC)**
