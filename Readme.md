@@ -198,7 +198,7 @@ In this measurement, we're going the keep the same gain, in order to keep the sa
 
 <figure>
   <img src="plot/Input-Referred_Noise_77K_same_gain_new_supply.png" alt="input-referred noise 77K same gain">
-  <figcaption>Input-referred noise @77K . We observe a decreasing of flicker noise in middle range  </figcaption>
+  <figcaption>Input-referred noise @77K ...  </figcaption>
 </figure>
 
 
