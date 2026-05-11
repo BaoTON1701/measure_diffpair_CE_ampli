@@ -213,6 +213,11 @@ Due to the fact that Liquid Nitrogen might forming some bubbles due to the conti
 We then use the board number 5, which we've seen the unstability in working with liquid nitrogen. The results show below
 
 <figure>
+  <img src="plot/Measured_Noise_77K_B5_cryostat.png" alt="cryostat">
+  <figcaption>Measured noise board 5  </figcaption>
+</figure>
+
+<figure>
   <img src="plot/Input-Referred_Noise_77K_B5_cryostat.png" alt="cryostat">
   <figcaption>Input referred noise measured at board 5 (with the corresponding gain measured)  </figcaption>
 </figure>
@@ -222,8 +227,13 @@ We observe from this figure that flicker noise still doesn't change wherever the
 Another point is that the measurement at around 300uA seems to be saturate at some point. Due to the fact that we observe exactly similar noise shape with board 4, the first biasing result can be replace by the one measured using board 4. 
 
 <figure>
+  <img src="plot/Measured_Noise_77K_B5_full_cryostat.png" alt="cryostat">
+  <figcaption>Measured noise board 5 (with the first one replaced by board 4)  </figcaption>
+</figure>
+
+<figure>
   <img src="plot/Input-Referred_Noise_77K_B5_full_cryostat.png" alt="cryostat">
-  <figcaption>Input referred noise measured at board 5 (with the corresponding gain measured), where the first result replaced  </figcaption>
+  <figcaption>Input referred noise measured atard 5 (with the corresponding gain measured), where the first result replaced  </figcaption>
 </figure>
 
 This figure clear showed that white noise (mostly contribute by shot noise) increased and form a plateau when increasing the collector current. This make sense because $S_{v,shot} \propto \frac{1}{\sqrt{I_C}}$. However, we still not observe any improvement of flicker noise...
