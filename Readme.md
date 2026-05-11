@@ -201,8 +201,32 @@ In this measurement, we're going the keep the same gain, in order to keep the sa
   <figcaption>Input-referred noise @77K ...  </figcaption>
 </figure>
 
+### 4. Results measured within the new cryostat 
 
+Due to the fact that Liquid Nitrogen might forming some bubbles due to the continuosly boiling (by heat transfer with RT), we are expected to have high flicker noise (as shown in two previous section). We've planned to use the cryostat to operate at 77K to provide a stable cooling environment for the measurement. 
 
+<figure>
+  <img src="plot/setup/cryostat.jpeg" alt="cryostat">
+  <figcaption>Measurement setup with the cryostat. In phase of pumping the vacumn  </figcaption>
+</figure>
+
+We then use the board number 5, which we've seen the unstability in working with liquid nitrogen. The results show below
+
+<figure>
+  <img src="plot/Input-Referred_Noise_77K_B5_cryostat.png" alt="cryostat">
+  <figcaption>Input referred noise measured at board 5 (with the corresponding gain measured)  </figcaption>
+</figure>
+
+We observe from this figure that flicker noise still doesn't change wherever the applied biasing. This is bad because since the flicker noise is power 2 proportional to collector current, it should be obvious to observe this behavior. 
+
+Another point is that the measurement at around 300uA seems to be saturate at some point. Due to the fact that we observe exactly similar noise shape with board 4, the first biasing result can be replace by the one measured using board 4. 
+
+<figure>
+  <img src="plot/Input-Referred_Noise_77K_B5_full_cryostat.png" alt="cryostat">
+  <figcaption>Input referred noise measured at board 5 (with the corresponding gain measured), where the first result replaced  </figcaption>
+</figure>
+
+This figure clear showed that white noise (mostly contribute by shot noise) increased and form a plateau when increasing the collector current. This make sense because $S_{v,shot} \propto \frac{1}{\sqrt{I_C}}$. However, we still not observe any improvement of flicker noise...
 
 -------
 Acknowledgement: ASICs and Measurement was done due to the contribution of **R&T BiCMOS** multi-wafer project and **Laboratory
